@@ -31,4 +31,12 @@ export class AnimalListComponent implements OnInit {
         this.animals.splice(index, 1);
     }
 
+    moveOnTop(animal) {
+        console.log(animal);
+        const index = this.animals.indexOf(animal);
+
+        this.animals.splice(index, 1);
+        this.animals.splice(0, 0, animal);
+    }
+
 }

@@ -15,7 +15,7 @@
       <td>{{ animal.name }}</td>
       <td>{{ animal.type }}</td>
       <td>{{ animal.day_of_birth ? animal.day_of_birth : 'Unknown' }}</td>
-      <td class="text-center"><button (click)="removeAnimal(animal)" style="cursor:pointer" class="badge badge-danger badge-pill btn">x</button></td>
+      <td class="text-center"><button (click)="removeAnimal(animal)" style="cursor:pointer" class="badge badge-danger badge-pill btn">x</button> <button (click)="moveOnTop(animal)" style="cursor:pointer" class="badge badge-danger badge-pill btn">▲</button></td>
     </tr>
     </tbody>
   </table>
