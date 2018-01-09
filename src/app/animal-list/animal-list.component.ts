@@ -9,6 +9,9 @@ import {Animal} from '../animal';
 export class AnimalListComponent implements OnInit {
 
     animals: Array<object>;
+    name;
+    type;
+    day_of_birth;
 
     constructor() {
 
@@ -37,6 +40,10 @@ export class AnimalListComponent implements OnInit {
 
         this.animals.splice(index, 1);
         this.animals.splice(0, 0, animal);
+    }
+
+    addAnimal() {
+        this.animals.push(new Animal(this.name, this.type, this.day_of_birth));
     }
 
 }

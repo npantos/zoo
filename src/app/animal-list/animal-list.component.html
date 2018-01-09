@@ -1,7 +1,28 @@
 <div class="container mt-5">
 
+  <form class="row">
+    <div class="col-3">
+      <label for="name">Name:</label><br />
+      <input type="text" name="name" [(ngModel)]="name">
+    </div>
 
-  <table class="table table-hover">
+    <div class="col-3">
+      <label for="type">Type</label><br />
+      <input type="text" name="type" [(ngModel)]="type">
+    </div>
+
+    <div class="col-3">
+      <label for="day_of_birth">Day of birth</label><br />
+      <input type="text" name="day_of_birth" [(ngModel)]="day_of_birth"><br />
+    </div>
+
+    <div class="col-3">
+      <br />
+      <button class="btn btn-danger" (click)="addAnimal()">Add Animal</button>
+    </div>
+  </form>
+
+  <table class="table table-hover mt-5">
     <thead>
     <tr>
       <th scope="col">Name</th>
