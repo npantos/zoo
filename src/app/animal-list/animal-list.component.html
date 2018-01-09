@@ -7,14 +7,14 @@
       <th scope="col">Name</th>
       <th scope="col">Type</th>
       <th scope="col">Day of birth</th>
-      <th scope="col">Actions</th>
+      <th class="text-center" scope="col">Actions</th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let animal of animals">
       <td>{{ animal.name }}</td>
       <td>{{ animal.type }}</td>
-      <td>{{ animal.day_of_birth }}</td>
+      <td>{{ animal.day_of_birth ? animal.day_of_birth : 'Unknown' }}</td>
       <td class="text-center"><button (click)="removeAnimal(animal)" style="cursor:pointer" class="badge badge-danger badge-pill btn">x</button></td>
     </tr>
     </tbody>

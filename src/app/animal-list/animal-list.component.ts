@@ -35,6 +35,10 @@ export class AnimalListComponent implements OnInit {
               name: 'Polar Bear',
               type: 'Bear',
               day_of_birth: '02.02.2005.'
+          },
+          {
+              name: 'Brown Bear',
+              type: 'Bear'
           }
       ];
 
