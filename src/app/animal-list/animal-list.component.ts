@@ -12,22 +12,24 @@ export class AnimalListComponent implements OnInit {
     animals: Array<object>;
     name;
     type;
-    sector;
+    sectors: Array<object>;
     day_of_birth;
-    sector1 = new Sector('sektor 1', 'Grass');
-    sector2 = new Sector('sektor 2', 'Dirt');
-    sector3 = new Sector('sektor 3', 'Concrete');
 
     constructor() {
 
+        this.sectors = [
+            new Sector('sektor 1', 'Grass'),
+            new Sector('sektor 2', 'Dirt'),
+            new Sector('sektor 3', 'Concrete')
+        ];
 
         this.animals = [
-            new Animal('Lion', 'Cat', '12.11.2010.', this.sector1.name),
-            new Animal('Tiger', 'Cat', '10.10.2000.', this.sector1.name),
-            new Animal('Puma', 'Cat', '101.01.2011.', this.sector2.name),
-            new Animal('Eagle', 'Bird', '13.09.2000.', this.sector2.name),
-            new Animal('Polar Bear', 'Bear', '02.02.2005.', this.sector3.name),
-            new Animal('Brown Bear', 'Bear', null, this.sector3.name)
+            new Animal('Lion', 'Cat', '12.11.2010.', this.sectors[0]),
+            new Animal('Tiger', 'Cat', '10.10.2000.', this.sectors[1]),
+            new Animal('Puma', 'Cat', '101.01.2011.', this.sectors[0]),
+            new Animal('Eagle', 'Bird', '13.09.2000.', this.sectors[2]),
+            new Animal('Polar Bear', 'Bear', '02.02.2005.', this.sectors[1]),
+            new Animal('Brown Bear', 'Bear', null, this.sectors[1])
         ];
     }
 
@@ -50,6 +52,16 @@ export class AnimalListComponent implements OnInit {
 
     addAnimal() {
         this.animals.push(new Animal(this.name, this.type, this.day_of_birth));
+    }
+
+    sectorPopUp(sector) {
+
+        this.animals.filter(function (select) {
+            if (select.sector == sector) {
+                console.log(select);
+            }
+        });
+
     }
 
 }

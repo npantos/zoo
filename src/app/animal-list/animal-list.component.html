@@ -37,7 +37,7 @@
       <td>{{ animal.name }}</td>
       <td>{{ animal.type }}</td>
       <td>{{ animal.day_of_birth ? animal.day_of_birth : 'Unknown' }}</td>
-      <td>{{ animal.sector ? animal.sector : 'Unknown' }}</td>
+      <td>{{ animal.sector.name ? animal.sector.name : 'Unknown' }}</td>
       <td class="text-center">
         <button (click)="removeAnimal(animal)" style="cursor:pointer" class="badge badge-danger badge-pill btn">x</button>
         <button (click)="moveOnTop(animal)" style="cursor:pointer" class="badge badge-danger badge-pill btn">▲</button>
@@ -45,6 +45,25 @@
     </tr>
     </tbody>
   </table>
+
+
+    <table class="table table-hover mt-5">
+        <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Surface</th>
+            <th class="text-center" scope="col">Actions</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let sector of sectors">
+            <td>{{ sector.name }}</td>
+            <td>{{ sector.surface }}</td>
+            <td><button (click)="sectorPopUp(sector)" style="cursor:pointer" class="badge badge-danger badge-pill btn">View animals in this sector</button></td>
+        </tr>
+        </tbody>
+    </table>
 
 
 
