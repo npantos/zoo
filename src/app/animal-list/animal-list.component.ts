@@ -12,6 +12,7 @@ export class AnimalListComponent implements OnInit {
     animals: Array<object>;
     name;
     type;
+    sector;
     sectors: Array<object>;
     day_of_birth;
 
@@ -51,17 +52,19 @@ export class AnimalListComponent implements OnInit {
     }
 
     addAnimal() {
-        this.animals.push(new Animal(this.name, this.type, this.day_of_birth));
+        console.log(this.sector);
+        this.animals.push(new Animal(this.name, this.type, this.day_of_birth, this.sectors[this.sector]));
+        console.log(this.animals);
     }
 
     sectorPopUp(sector) {
-
-        this.animals.filter(function (select) {
-            if (select.sector == sector) {
-                console.log(select);
+        const filteredNames = [];
+        this.animals.filter(function (animals) {
+            if (animals['sector'] === sector) {
+                filteredNames.push(animals['name']);
             }
         });
-
+        alert(filteredNames);
     }
 
 }

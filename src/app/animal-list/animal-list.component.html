@@ -1,70 +1,78 @@
 <div class="container mt-5">
+    <form class="row">
+        <div class="col-3">
+            <label for="name">Name:</label><br/>
+            <input type="text" id="name" name="name" [(ngModel)]="name">
+        </div>
 
-  <form class="row">
-    <div class="col-3">
-      <label for="name">Name:</label><br />
-      <input type="text" name="name" [(ngModel)]="name">
-    </div>
+        <div class="col-3">
+            <label for="type">Type</label><br/>
+            <input type="text" id="type" name="type" [(ngModel)]="type">
+        </div>
 
-    <div class="col-3">
-      <label for="type">Type</label><br />
-      <input type="text" name="type" [(ngModel)]="type">
-    </div>
+        <div class="col-3">
+            <label for="day_of_birth">Day of birth</label><br/>
+            <input type="text" id="day_of_birth" name="day_of_birth" [(ngModel)]="day_of_birth"><br/>
+        </div>
 
-    <div class="col-3">
-      <label for="day_of_birth">Day of birth</label><br />
-      <input type="text" name="day_of_birth" [(ngModel)]="day_of_birth"><br />
-    </div>
+        <div class="col-3">
+            <label for="sector">Sector</label><br/>
+            <select name="sector" id="sector" [(ngModel)]="sector">
+                <option *ngFor="let sector of sectors;let i = index" value="{{i}}">{{ sector['name'] }}</option>
+            </select>
+        </div>
 
-    <div class="col-3">
-      <br />
-      <button class="btn btn-danger" (click)="addAnimal()">Add Animal</button>
-    </div>
-  </form>
-
-  <table class="table table-hover mt-5">
-    <thead>
-    <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Type</th>
-      <th scope="col">Day of birth</th>
-      <th scope="col">Sector</th>
-      <th class="text-center" scope="col">Actions</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let animal of animals">
-      <td>{{ animal.name }}</td>
-      <td>{{ animal.type }}</td>
-      <td>{{ animal.day_of_birth ? animal.day_of_birth : 'Unknown' }}</td>
-      <td>{{ animal.sector.name ? animal.sector.name : 'Unknown' }}</td>
-      <td class="text-center">
-        <button (click)="removeAnimal(animal)" style="cursor:pointer" class="badge badge-danger badge-pill btn">x</button>
-        <button (click)="moveOnTop(animal)" style="cursor:pointer" class="badge badge-danger badge-pill btn">▲</button>
-      </td>
-    </tr>
-    </tbody>
-  </table>
-
+        <div class="col-3">
+            <br/>
+            <button class="btn btn-danger" (click)="addAnimal()">Add Animal</button>
+        </div>
+    </form>
 
     <table class="table table-hover mt-5">
         <thead>
-        <tr>
+        <tr class="table-active">
             <th scope="col">Name</th>
-            <th scope="col">Surface</th>
+            <th scope="col">Type</th>
+            <th scope="col">Day of birth</th>
+            <th scope="col">Sector</th>
             <th class="text-center" scope="col">Actions</th>
-
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let sector of sectors">
-            <td>{{ sector.name }}</td>
-            <td>{{ sector.surface }}</td>
-            <td><button (click)="sectorPopUp(sector)" style="cursor:pointer" class="badge badge-danger badge-pill btn">View animals in this sector</button></td>
+        <tr *ngFor="let animal of animals">
+            <td>{{ animal['name'] }}</td>
+            <td>{{ animal['type'] }}</td>
+            <td>{{ animal['day_of_birth'] ? animal['day_of_birth'] : 'Unknown' }}</td>
+            <td>{{ animal['sector'] ? animal['sector']['name'] : 'Unknown' }}</td>
+            <td class="text-center">
+                <button (click)="removeAnimal(animal)" style="cursor:pointer" class="badge badge-danger badge-pill btn">
+                    x
+                </button>
+                <button (click)="moveOnTop(animal)" style="cursor:pointer" class="badge badge-danger badge-pill btn">▲
+                </button>
+            </td>
         </tr>
         </tbody>
     </table>
 
-
-
+    <table class="table table-hover mt-5">
+        <thead>
+        <tr class="table-active">
+            <th scope="col">Name</th>
+            <th scope="col">Surface</th>
+            <th class="text-center" scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let sector of sectors">
+            <td>{{ sector['name'] }}</td>
+            <td>{{ sector['surface'] }}</td>
+            <td class="text-center">
+                <button (click)="sectorPopUp(sector)" style="cursor:pointer" class="btn btn-danger">
+                    View animals in this sector
+                </button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
 </div>
