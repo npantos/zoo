@@ -54,6 +54,23 @@
         </tr>
         </tbody>
     </table>
+    <hr class="mt-5">
+    <form class="row">
+        <div class="col-3">
+            <label for="sector_name">Name:</label><br/>
+            <input type="text" id="sector_name" name="sector_name" [(ngModel)]="sector_name">
+        </div>
+
+        <div class="col-3">
+            <label for="type">Surface</label><br/>
+            <input type="text" id="surface" name="surface" [(ngModel)]="surface">
+        </div>
+
+        <div class="col-3">
+            <br/>
+            <button class="btn btn-danger" (click)="addSector()">Add Sector</button>
+        </div>
+    </form>
 
     <table class="table table-hover mt-5">
         <thead>

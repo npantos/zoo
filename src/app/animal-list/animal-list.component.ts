@@ -13,6 +13,8 @@ export class AnimalListComponent implements OnInit {
     name;
     type;
     sector;
+    sector_name;
+    surface;
     sectors: Array<object>;
     day_of_birth;
 
@@ -52,9 +54,13 @@ export class AnimalListComponent implements OnInit {
     }
 
     addAnimal() {
-        console.log(this.sector);
         this.animals.push(new Animal(this.name, this.type, this.day_of_birth, this.sectors[this.sector]));
         console.log(this.animals);
+    }
+
+    addSector() {
+        this.sectors.push(new Sector(this.sector_name, this.surface));
+        console.log(this.sectors);
     }
 
     sectorPopUp(sector) {
